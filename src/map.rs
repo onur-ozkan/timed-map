@@ -35,6 +35,12 @@ cfg_std_feature! {
 }
 
 /// Wraps different map implementations and provides a single interface to access them.
+///
+/// TODO: Consider removing this type, instead, define a trait and update the internals
+/// of [`TimedMap`] to work with a generic value that implements this trait. This would
+/// allow users to implement the trait for their own custom map types, which means any
+/// map implementation can be supported from this library without needing to touch the
+/// library internals.
 #[allow(clippy::enum_variant_names)]
 #[derive(Clone, Debug)]
 enum GenericMap<K, V> {
