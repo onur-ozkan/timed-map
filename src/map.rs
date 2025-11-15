@@ -747,7 +747,7 @@ where
     /// To exclude expired entries, use [`TimedMap::contains_key`] instead.
     #[inline(always)]
     pub fn contains_key_unchecked(&self, k: &K) -> bool {
-        self.map.keys().contains(k)
+        self.get_unchecked(k).is_some()
     }
 }
 
